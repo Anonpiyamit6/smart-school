@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart School Management</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="min-h-screen bg-slate-50 text-slate-700 antialiased overflow-x-hidden">
+
+  <!-- พื้นหลัง -->
+  <div class="tech-ambient"></div>
+
+  <!-- 🌟 แถบเมนูด้านซ้าย (Left Sidebar - จัดกลุ่มใหม่ 4 หมวด ไม่มีเกม) 🌟 -->
+  <aside id="tech-sidebar" class="fixed top-0 bottom-0 left-0 flex flex-col z-50 overflow-hidden select-none w-[270px] bg-white/94 backdrop-blur-xl border-r border-slate-100 shadow-sm">
+    
+    <!-- โลโก้ -->
+    <div class="h-20 flex items-center gap-3.5 px-5 border-b border-indigo-100/80 bg-gradient-to-r from-violet-100/90 via-indigo-50/80 to-pink-100/80 shrink-0 relative overflow-hidden">
+      <div class="w-12 h-12 rounded-2xl bg-white p-1.5 shadow-md border border-white flex items-center justify-center shrink-0">
+        <!-- เปลี่ยนลิงก์โลโก้โรงเรียนของคุณได้ที่นี่ -->
+        <img src="https://s.imgz.io/2026/10/02/fb629284c6f02a394eba053aa58c3551301b931893e695c6.png" class="w-full h-full object-contain">
+      </div>
+      <div class="leading-tight relative z-10">
+        <h1 class="text-slate-900 font-black text-[15px] tracking-tight flex items-center gap-1.5">
+          <span>Smart School</span><span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        </h1>
+        <span class="inline-block text-[10px] font-extrabold uppercase text-indigo-700 bg-white/95 px-2 py-0.5 rounded-md mt-1">S-CMS 2026</span>
+      </div>
+    </div>
+
+    <!-- เมนู 4 หมวดหลัก -->
+    <div class="flex-1 overflow-y-auto py-3 space-y-1">
+      
+      <div class="nav-item active" onclick="navigateTo('page-landing')">
+        <div class="nav-icon text-indigo-500"><i class="fa-solid fa-house"></i></div>
+        <span class="flex-1 truncate">หน้าหลัก (Dashboard)</span>
+      </div>
+
+      <div class="nav-group-title">1. งานสอน & ชั้นเรียน</div>
+      <div class="nav-item" onclick="navigateTo('page-checkin')">
+        <div class="nav-icon text-sky-500"><i class="fa-solid fa-qrcode"></i></div><span class="flex-1 truncate">เช็คชื่อเข้าเรียน (QR)</span>
+      </div>
+      <div class="nav-item" onclick="navigateTo('page-summary')">
+        <div class="nav-icon text-blue-500"><i class="fa-solid fa-chart-pie"></i></div><span class="flex-1 truncate">สรุปเวลาเรียน & ตารางสอน</span>
+      </div>
+
+      <div class="nav-group-title">2. งานวิชาการ & วัดผล</div>
+      <div class="nav-item" onclick="navigateTo('page-score')">
+        <div class="nav-icon text-amber-500"><i class="fa-solid fa-ranking-star"></i></div><span class="flex-1 truncate">สมุดคะแนน (Gradebook)</span>
+      </div>
+      <div class="nav-item" onclick="navigateTo('page-assignment')">
+        <div class="nav-icon text-orange-500"><i class="fa-solid fa-clipboard-check"></i></div><span class="flex-1 truncate">เช็คส่งงาน & ซ่อมเสริม</span>
+      </div>
+      <div class="nav-item" onclick="navigateTo('page-exam-grader')">
+        <div class="nav-icon text-rose-500"><i class="fa-solid fa-camera"></i></div><span class="flex-1 truncate">ตรวจข้อสอบ OMR AI</span>
+      </div>
+      <div class="nav-item" onclick="navigateTo('page-academic-summary')">
+        <div class="nav-icon text-teal-500"><i class="fa-solid fa-chart-line"></i></div><span class="flex-1 truncate">สรุปผลสัมฤทธิ์ (SAR)</span>
+      </div>
+
+      <div class="nav-group-title">3. ดูแลช่วยเหลือนักเรียน</div>
+      <div class="nav-item" onclick="navigateTo('page-homeroom')">
+        <div class="nav-icon text-pink-500"><i class="fa-solid fa-shield-heart"></i></div><span class="flex-1 truncate">โฮมรูม & ใบลาออนไลน์</span>
+      </div>
+      <div class="nav-item" onclick="navigateTo('page-home-visit')">
+        <div class="nav-icon text-indigo-400"><i class="fa-solid fa-house-user"></i></div><span class="flex-1 truncate">เยี่ยมบ้าน & SDQ</span>
+      </div>
+      <div class="nav-item" onclick="navigateTo('page-health')">
+        <div class="nav-icon text-emerald-500"><i class="fa-solid fa-weight-scale"></i></div><span class="flex-1 truncate">สุขภาพ & โภชนาการ</span>
+      </div>
+
+      <div class="nav-group-title">4. จัดการระบบ & เอกสาร</div>
+      <div class="nav-item" onclick="navigateTo('page-students')">
+        <div class="nav-icon text-purple-500"><i class="fa-solid fa-users-gear"></i></div><span class="flex-1 truncate">ทะเบียนนักเรียน & QR</span>
+      </div>
+      <div class="nav-item" onclick="navigateTo('page-doc-receipt')">
+        <div class="nav-icon text-fuchsia-500"><i class="fa-solid fa-print"></i></div><span class="flex-1 truncate">พิมพ์แบบฟอร์มเอกสาร</span>
+      </div>
+    </div>
+
+    <!-- ปุ่มออกจากระบบล่างสุด -->
+    <div class="p-4 border-t border-slate-100 bg-white shrink-0">
+      <button onclick="executeLogout()" class="w-full flex items-center justify-center gap-2 bg-slate-50 hover:bg-rose-50 text-slate-500 hover:text-rose-600 border border-slate-200 py-2 px-4 rounded-xl text-xs font-bold transition-all">
+        <i class="fa-solid fa-power-off"></i> ออกจากระบบ
+      </button>
+    </div>
+  </aside>
+
+  <!-- พื้นที่แสดงหน้าจอขวา (จะใช้ Javascript ดึงเนื้อหามาใส่ทีหลัง) -->
+  <div id="main-content-wrapper" class="flex-1 ml-[270px] flex flex-col min-h-screen">
+    <div class="flex items-center justify-center h-full mt-20">
+      <h2 class="text-xl font-bold text-slate-400">กำลังโหลดระบบ...</h2>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
